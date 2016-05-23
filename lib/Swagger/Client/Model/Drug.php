@@ -57,9 +57,10 @@ class Drug implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'ndc' => 'string',
+        'id' => 'string',
         'proprietary_name' => 'string',
-        'non_proprietary_name' => 'string'
+        'non_proprietary_name' => 'string',
+        'drug_package_ids' => 'string[]'
     );
   
     static function swaggerTypes() {
@@ -71,9 +72,10 @@ class Drug implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'ndc' => 'ndc',
+        'id' => 'id',
         'proprietary_name' => 'proprietary_name',
-        'non_proprietary_name' => 'non_proprietary_name'
+        'non_proprietary_name' => 'non_proprietary_name',
+        'drug_package_ids' => 'drug_package_ids'
     );
   
     static function attributeMap() {
@@ -85,9 +87,10 @@ class Drug implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'ndc' => 'setNdc',
+        'id' => 'setId',
         'proprietary_name' => 'setProprietaryName',
-        'non_proprietary_name' => 'setNonProprietaryName'
+        'non_proprietary_name' => 'setNonProprietaryName',
+        'drug_package_ids' => 'setDrugPackageIds'
     );
   
     static function setters() {
@@ -99,9 +102,10 @@ class Drug implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'ndc' => 'getNdc',
+        'id' => 'getId',
         'proprietary_name' => 'getProprietaryName',
-        'non_proprietary_name' => 'getNonProprietaryName'
+        'non_proprietary_name' => 'getNonProprietaryName',
+        'drug_package_ids' => 'getDrugPackageIds'
     );
   
     static function getters() {
@@ -109,10 +113,10 @@ class Drug implements ArrayAccess
     }
 
     /**
-      * $ndc National Drug Code ID
+      * $id National Drug Code ID
       * @var string
       */
-    protected $ndc;
+    protected $id;
     /**
       * $proprietary_name Proprietary name of drug
       * @var string
@@ -123,6 +127,11 @@ class Drug implements ArrayAccess
       * @var string
       */
     protected $non_proprietary_name;
+    /**
+      * $drug_package_ids Array of drug package Ids
+      * @var string[]
+      */
+    protected $drug_package_ids;
 
     /**
      * Constructor
@@ -133,29 +142,30 @@ class Drug implements ArrayAccess
         
         
         if ($data != null) {
-            $this->ndc = $data["ndc"];
+            $this->id = $data["id"];
             $this->proprietary_name = $data["proprietary_name"];
             $this->non_proprietary_name = $data["non_proprietary_name"];
+            $this->drug_package_ids = $data["drug_package_ids"];
         }
     }
     /**
-     * Gets ndc
+     * Gets id
      * @return string
      */
-    public function getNdc()
+    public function getId()
     {
-        return $this->ndc;
+        return $this->id;
     }
   
     /**
-     * Sets ndc
-     * @param string $ndc National Drug Code ID
+     * Sets id
+     * @param string $id National Drug Code ID
      * @return $this
      */
-    public function setNdc($ndc)
+    public function setId($id)
     {
         
-        $this->ndc = $ndc;
+        $this->id = $id;
         return $this;
     }
     /**
@@ -196,6 +206,26 @@ class Drug implements ArrayAccess
     {
         
         $this->non_proprietary_name = $non_proprietary_name;
+        return $this;
+    }
+    /**
+     * Gets drug_package_ids
+     * @return string[]
+     */
+    public function getDrugPackageIds()
+    {
+        return $this->drug_package_ids;
+    }
+  
+    /**
+     * Sets drug_package_ids
+     * @param string[] $drug_package_ids Array of drug package Ids
+     * @return $this
+     */
+    public function setDrugPackageIds($drug_package_ids)
+    {
+        
+        $this->drug_package_ids = $drug_package_ids;
         return $this;
     }
     /**

@@ -4,13 +4,13 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**plansFindPost**](PlansApi.md#plansFindPost) | **POST** /plans/find | Find a set of plans for a Zip Code and County
+[**findPlans**](PlansApi.md#findPlans) | **POST** /plans/search | Find Plans
 
 
-# **plansFindPost**
-> \Swagger\Client\Model\Plan[] plansFindPost($query)
+# **findPlans**
+> \Swagger\Client\Model\PlanSearchResponse findPlans($body)
 
-Find a set of plans for a Zip Code and County
+Find Plans
 
 ### Location Information
 
@@ -31,7 +31,6 @@ Applicants *must* include an age.  If smoker is omitted, its value is assumed
 to be false.
 
 #### Multiple Applicants
-
 To get pricing for multiple applicants, just append multiple sets
 of data to the URL with the age and smoking status of each applicant
 next to each other.
@@ -75,20 +74,19 @@ and return it for each plan.  If no values are provided, the
 `GET /plans?zip_code=07451&fips_code=33025&household_size=4&household_income=40000`
 
 
-
 ### Example 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Vericred\Client\Api\PlansApi();
-$query = new \Swagger\Client\Model\Query(); // \Swagger\Client\Model\Query | Plan query
+$body = new \Swagger\Client\Model\RequestPlanFind(); // \Swagger\Client\Model\RequestPlanFind | 
 
 try { 
-    $result = $api_instance->plansFindPost($query);
+    $result = $api_instance->findPlans($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlansApi->plansFindPost: ', $e->getMessage(), "\n";
+    echo 'Exception when calling PlansApi->findPlans: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -97,11 +95,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**\Swagger\Client\Model\Query**](\Swagger\Client\Model\Query.md)| Plan query | 
+ **body** | [**\Swagger\Client\Model\RequestPlanFind**](\Swagger\Client\Model\RequestPlanFind.md)|  | [optional] 
 
 ### Return type
 
-[**\Swagger\Client\Model\Plan[]**](Plan.md)
+[**\Swagger\Client\Model\PlanSearchResponse**](PlanSearchResponse.md)
 
 ### Authorization
 

@@ -64,25 +64,35 @@ class PlanSearchResult implements ArrayAccess
         'carrier_name' => 'string',
         'child_dental' => 'bool',
         'child_eyewear' => 'string',
+        'child_eye_exam' => 'string',
         'customer_service_phone_number' => 'string',
         'durable_medical_equipment' => 'string',
         'diagnostic_test' => 'string',
         'drug_formulary_url' => 'string',
+        'effective_date' => 'string',
+        'expiration_date' => 'string',
         'emergency_room' => 'string',
         'family_drug_deductible' => 'string',
         'family_drug_moop' => 'string',
         'family_medical_deductible' => 'string',
         'family_medical_moop' => 'string',
         'generic_drugs' => 'string',
+        'habilitation_services' => 'string',
         'hios_issuer_id' => 'string',
+        'home_health_care' => 'string',
+        'hospice_service' => 'string',
         'id' => 'string',
         'imaging' => 'string',
+        'in_network_ids' => 'int[]',
         'individual_drug_deductible' => 'string',
         'individual_drug_moop' => 'string',
         'individual_medical_deductible' => 'string',
         'individual_medical_moop' => 'string',
+        'inpatient_birth' => 'string',
         'inpatient_facility' => 'string',
+        'inpatient_mental_health' => 'string',
         'inpatient_physician' => 'string',
+        'inpatient_substance' => 'string',
         'level' => 'string',
         'logo_url' => 'string',
         'name' => 'string',
@@ -90,20 +100,28 @@ class PlanSearchResult implements ArrayAccess
         'on_market' => 'bool',
         'off_market' => 'bool',
         'out_of_network_coverage' => 'bool',
+        'out_of_network_ids' => 'int[]',
         'outpatient_facility' => 'string',
         'outpatient_mental_health' => 'string',
         'outpatient_physician' => 'string',
+        'outpatient_substance' => 'string',
         'plan_market' => 'string',
         'plan_type' => 'string',
         'preferred_brand_drugs' => 'string',
+        'prenatal_postnatal_care' => 'string',
         'preventative_care' => 'string',
+        'premium_subsidized' => 'float',
+        'premium' => 'float',
         'primary_care_physician' => 'string',
         'rehabilitation_services' => 'string',
+        'skilled_nursing' => 'string',
         'specialist' => 'string',
         'specialty_drugs' => 'string',
         'urgent_care' => 'string',
         'match_percentage' => 'int',
-        'perfect_match_percentage' => 'int'
+        'perfect_match_percentage' => 'int',
+        'employee_premium' => 'float',
+        'dependent_premium' => 'float'
     );
   
     static function swaggerTypes() {
@@ -122,25 +140,35 @@ class PlanSearchResult implements ArrayAccess
         'carrier_name' => 'carrier_name',
         'child_dental' => 'child_dental',
         'child_eyewear' => 'child_eyewear',
+        'child_eye_exam' => 'child_eye_exam',
         'customer_service_phone_number' => 'customer_service_phone_number',
         'durable_medical_equipment' => 'durable_medical_equipment',
         'diagnostic_test' => 'diagnostic_test',
         'drug_formulary_url' => 'drug_formulary_url',
+        'effective_date' => 'effective_date',
+        'expiration_date' => 'expiration_date',
         'emergency_room' => 'emergency_room',
         'family_drug_deductible' => 'family_drug_deductible',
         'family_drug_moop' => 'family_drug_moop',
         'family_medical_deductible' => 'family_medical_deductible',
         'family_medical_moop' => 'family_medical_moop',
         'generic_drugs' => 'generic_drugs',
+        'habilitation_services' => 'habilitation_services',
         'hios_issuer_id' => 'hios_issuer_id',
+        'home_health_care' => 'home_health_care',
+        'hospice_service' => 'hospice_service',
         'id' => 'id',
         'imaging' => 'imaging',
+        'in_network_ids' => 'in_network_ids',
         'individual_drug_deductible' => 'individual_drug_deductible',
         'individual_drug_moop' => 'individual_drug_moop',
         'individual_medical_deductible' => 'individual_medical_deductible',
         'individual_medical_moop' => 'individual_medical_moop',
+        'inpatient_birth' => 'inpatient_birth',
         'inpatient_facility' => 'inpatient_facility',
+        'inpatient_mental_health' => 'inpatient_mental_health',
         'inpatient_physician' => 'inpatient_physician',
+        'inpatient_substance' => 'inpatient_substance',
         'level' => 'level',
         'logo_url' => 'logo_url',
         'name' => 'name',
@@ -148,20 +176,28 @@ class PlanSearchResult implements ArrayAccess
         'on_market' => 'on_market',
         'off_market' => 'off_market',
         'out_of_network_coverage' => 'out_of_network_coverage',
+        'out_of_network_ids' => 'out_of_network_ids',
         'outpatient_facility' => 'outpatient_facility',
         'outpatient_mental_health' => 'outpatient_mental_health',
         'outpatient_physician' => 'outpatient_physician',
+        'outpatient_substance' => 'outpatient_substance',
         'plan_market' => 'plan_market',
         'plan_type' => 'plan_type',
         'preferred_brand_drugs' => 'preferred_brand_drugs',
+        'prenatal_postnatal_care' => 'prenatal_postnatal_care',
         'preventative_care' => 'preventative_care',
+        'premium_subsidized' => 'premium_subsidized',
+        'premium' => 'premium',
         'primary_care_physician' => 'primary_care_physician',
         'rehabilitation_services' => 'rehabilitation_services',
+        'skilled_nursing' => 'skilled_nursing',
         'specialist' => 'specialist',
         'specialty_drugs' => 'specialty_drugs',
         'urgent_care' => 'urgent_care',
         'match_percentage' => 'match_percentage',
-        'perfect_match_percentage' => 'perfect_match_percentage'
+        'perfect_match_percentage' => 'perfect_match_percentage',
+        'employee_premium' => 'employee_premium',
+        'dependent_premium' => 'dependent_premium'
     );
   
     static function attributeMap() {
@@ -180,25 +216,35 @@ class PlanSearchResult implements ArrayAccess
         'carrier_name' => 'setCarrierName',
         'child_dental' => 'setChildDental',
         'child_eyewear' => 'setChildEyewear',
+        'child_eye_exam' => 'setChildEyeExam',
         'customer_service_phone_number' => 'setCustomerServicePhoneNumber',
         'durable_medical_equipment' => 'setDurableMedicalEquipment',
         'diagnostic_test' => 'setDiagnosticTest',
         'drug_formulary_url' => 'setDrugFormularyUrl',
+        'effective_date' => 'setEffectiveDate',
+        'expiration_date' => 'setExpirationDate',
         'emergency_room' => 'setEmergencyRoom',
         'family_drug_deductible' => 'setFamilyDrugDeductible',
         'family_drug_moop' => 'setFamilyDrugMoop',
         'family_medical_deductible' => 'setFamilyMedicalDeductible',
         'family_medical_moop' => 'setFamilyMedicalMoop',
         'generic_drugs' => 'setGenericDrugs',
+        'habilitation_services' => 'setHabilitationServices',
         'hios_issuer_id' => 'setHiosIssuerId',
+        'home_health_care' => 'setHomeHealthCare',
+        'hospice_service' => 'setHospiceService',
         'id' => 'setId',
         'imaging' => 'setImaging',
+        'in_network_ids' => 'setInNetworkIds',
         'individual_drug_deductible' => 'setIndividualDrugDeductible',
         'individual_drug_moop' => 'setIndividualDrugMoop',
         'individual_medical_deductible' => 'setIndividualMedicalDeductible',
         'individual_medical_moop' => 'setIndividualMedicalMoop',
+        'inpatient_birth' => 'setInpatientBirth',
         'inpatient_facility' => 'setInpatientFacility',
+        'inpatient_mental_health' => 'setInpatientMentalHealth',
         'inpatient_physician' => 'setInpatientPhysician',
+        'inpatient_substance' => 'setInpatientSubstance',
         'level' => 'setLevel',
         'logo_url' => 'setLogoUrl',
         'name' => 'setName',
@@ -206,20 +252,28 @@ class PlanSearchResult implements ArrayAccess
         'on_market' => 'setOnMarket',
         'off_market' => 'setOffMarket',
         'out_of_network_coverage' => 'setOutOfNetworkCoverage',
+        'out_of_network_ids' => 'setOutOfNetworkIds',
         'outpatient_facility' => 'setOutpatientFacility',
         'outpatient_mental_health' => 'setOutpatientMentalHealth',
         'outpatient_physician' => 'setOutpatientPhysician',
+        'outpatient_substance' => 'setOutpatientSubstance',
         'plan_market' => 'setPlanMarket',
         'plan_type' => 'setPlanType',
         'preferred_brand_drugs' => 'setPreferredBrandDrugs',
+        'prenatal_postnatal_care' => 'setPrenatalPostnatalCare',
         'preventative_care' => 'setPreventativeCare',
+        'premium_subsidized' => 'setPremiumSubsidized',
+        'premium' => 'setPremium',
         'primary_care_physician' => 'setPrimaryCarePhysician',
         'rehabilitation_services' => 'setRehabilitationServices',
+        'skilled_nursing' => 'setSkilledNursing',
         'specialist' => 'setSpecialist',
         'specialty_drugs' => 'setSpecialtyDrugs',
         'urgent_care' => 'setUrgentCare',
         'match_percentage' => 'setMatchPercentage',
-        'perfect_match_percentage' => 'setPerfectMatchPercentage'
+        'perfect_match_percentage' => 'setPerfectMatchPercentage',
+        'employee_premium' => 'setEmployeePremium',
+        'dependent_premium' => 'setDependentPremium'
     );
   
     static function setters() {
@@ -238,25 +292,35 @@ class PlanSearchResult implements ArrayAccess
         'carrier_name' => 'getCarrierName',
         'child_dental' => 'getChildDental',
         'child_eyewear' => 'getChildEyewear',
+        'child_eye_exam' => 'getChildEyeExam',
         'customer_service_phone_number' => 'getCustomerServicePhoneNumber',
         'durable_medical_equipment' => 'getDurableMedicalEquipment',
         'diagnostic_test' => 'getDiagnosticTest',
         'drug_formulary_url' => 'getDrugFormularyUrl',
+        'effective_date' => 'getEffectiveDate',
+        'expiration_date' => 'getExpirationDate',
         'emergency_room' => 'getEmergencyRoom',
         'family_drug_deductible' => 'getFamilyDrugDeductible',
         'family_drug_moop' => 'getFamilyDrugMoop',
         'family_medical_deductible' => 'getFamilyMedicalDeductible',
         'family_medical_moop' => 'getFamilyMedicalMoop',
         'generic_drugs' => 'getGenericDrugs',
+        'habilitation_services' => 'getHabilitationServices',
         'hios_issuer_id' => 'getHiosIssuerId',
+        'home_health_care' => 'getHomeHealthCare',
+        'hospice_service' => 'getHospiceService',
         'id' => 'getId',
         'imaging' => 'getImaging',
+        'in_network_ids' => 'getInNetworkIds',
         'individual_drug_deductible' => 'getIndividualDrugDeductible',
         'individual_drug_moop' => 'getIndividualDrugMoop',
         'individual_medical_deductible' => 'getIndividualMedicalDeductible',
         'individual_medical_moop' => 'getIndividualMedicalMoop',
+        'inpatient_birth' => 'getInpatientBirth',
         'inpatient_facility' => 'getInpatientFacility',
+        'inpatient_mental_health' => 'getInpatientMentalHealth',
         'inpatient_physician' => 'getInpatientPhysician',
+        'inpatient_substance' => 'getInpatientSubstance',
         'level' => 'getLevel',
         'logo_url' => 'getLogoUrl',
         'name' => 'getName',
@@ -264,20 +328,28 @@ class PlanSearchResult implements ArrayAccess
         'on_market' => 'getOnMarket',
         'off_market' => 'getOffMarket',
         'out_of_network_coverage' => 'getOutOfNetworkCoverage',
+        'out_of_network_ids' => 'getOutOfNetworkIds',
         'outpatient_facility' => 'getOutpatientFacility',
         'outpatient_mental_health' => 'getOutpatientMentalHealth',
         'outpatient_physician' => 'getOutpatientPhysician',
+        'outpatient_substance' => 'getOutpatientSubstance',
         'plan_market' => 'getPlanMarket',
         'plan_type' => 'getPlanType',
         'preferred_brand_drugs' => 'getPreferredBrandDrugs',
+        'prenatal_postnatal_care' => 'getPrenatalPostnatalCare',
         'preventative_care' => 'getPreventativeCare',
+        'premium_subsidized' => 'getPremiumSubsidized',
+        'premium' => 'getPremium',
         'primary_care_physician' => 'getPrimaryCarePhysician',
         'rehabilitation_services' => 'getRehabilitationServices',
+        'skilled_nursing' => 'getSkilledNursing',
         'specialist' => 'getSpecialist',
         'specialty_drugs' => 'getSpecialtyDrugs',
         'urgent_care' => 'getUrgentCare',
         'match_percentage' => 'getMatchPercentage',
-        'perfect_match_percentage' => 'getPerfectMatchPercentage'
+        'perfect_match_percentage' => 'getPerfectMatchPercentage',
+        'employee_premium' => 'getEmployeePremium',
+        'dependent_premium' => 'getDependentPremium'
     );
   
     static function getters() {
@@ -320,6 +392,11 @@ class PlanSearchResult implements ArrayAccess
       */
     protected $child_eyewear;
     /**
+      * $child_eye_exam Child eye exam benefits summary
+      * @var string
+      */
+    protected $child_eye_exam;
+    /**
       * $customer_service_phone_number Phone number to contact the insurance carrier
       * @var string
       */
@@ -339,6 +416,16 @@ class PlanSearchResult implements ArrayAccess
       * @var string
       */
     protected $drug_formulary_url;
+    /**
+      * $effective_date Effective date of coverage.
+      * @var string
+      */
+    protected $effective_date;
+    /**
+      * $expiration_date Expiration date of coverage.
+      * @var string
+      */
+    protected $expiration_date;
     /**
       * $emergency_room Description of costs when visiting the ER
       * @var string
@@ -370,10 +457,25 @@ class PlanSearchResult implements ArrayAccess
       */
     protected $generic_drugs;
     /**
+      * $habilitation_services Habilitation services benefits summary
+      * @var string
+      */
+    protected $habilitation_services;
+    /**
       * $hios_issuer_id 
       * @var string
       */
     protected $hios_issuer_id;
+    /**
+      * $home_health_care Home health care benefits summary
+      * @var string
+      */
+    protected $home_health_care;
+    /**
+      * $hospice_service Hospice service benefits summary
+      * @var string
+      */
+    protected $hospice_service;
     /**
       * $id Government-issued HIOS plan ID
       * @var string
@@ -384,6 +486,11 @@ class PlanSearchResult implements ArrayAccess
       * @var string
       */
     protected $imaging;
+    /**
+      * $in_network_ids List of NPI numbers for Providers passed in who accept this Plan
+      * @var int[]
+      */
+    protected $in_network_ids;
     /**
       * $individual_drug_deductible Deductible for drugs when an individual is on the plan
       * @var string
@@ -405,15 +512,30 @@ class PlanSearchResult implements ArrayAccess
       */
     protected $individual_medical_moop;
     /**
+      * $inpatient_birth Inpatient birth benefits summary
+      * @var string
+      */
+    protected $inpatient_birth;
+    /**
       * $inpatient_facility Cost under the plan for an inpatient facility
       * @var string
       */
     protected $inpatient_facility;
     /**
+      * $inpatient_mental_health Inpatient mental helath benefits summary
+      * @var string
+      */
+    protected $inpatient_mental_health;
+    /**
       * $inpatient_physician Cost under the plan for an inpatient physician
       * @var string
       */
     protected $inpatient_physician;
+    /**
+      * $inpatient_substance Inpatient substance abuse benefits summary
+      * @var string
+      */
+    protected $inpatient_substance;
     /**
       * $level Plan metal grouping (e.g. platinum, gold, silver, etc)
       * @var string
@@ -450,6 +572,11 @@ class PlanSearchResult implements ArrayAccess
       */
     protected $out_of_network_coverage;
     /**
+      * $out_of_network_ids List of NPI numbers for Providers passed in who do not accept this Plan
+      * @var int[]
+      */
+    protected $out_of_network_ids;
+    /**
       * $outpatient_facility Benefits summary for outpatient facility coverage
       * @var string
       */
@@ -464,6 +591,11 @@ class PlanSearchResult implements ArrayAccess
       * @var string
       */
     protected $outpatient_physician;
+    /**
+      * $outpatient_substance Outpatient substance abuse benefits summary
+      * @var string
+      */
+    protected $outpatient_substance;
     /**
       * $plan_market Market in which the plan is offered (on_marketplace, shop, etc)
       * @var string
@@ -480,10 +612,25 @@ class PlanSearchResult implements ArrayAccess
       */
     protected $preferred_brand_drugs;
     /**
+      * $prenatal_postnatal_care Inpatient substance abuse benefits summary
+      * @var string
+      */
+    protected $prenatal_postnatal_care;
+    /**
       * $preventative_care Benefits summary for preventative care
       * @var string
       */
     protected $preventative_care;
+    /**
+      * $premium_subsidized Cumulative premium amount after subsidy
+      * @var float
+      */
+    protected $premium_subsidized;
+    /**
+      * $premium Cumulative premium amount
+      * @var float
+      */
+    protected $premium;
     /**
       * $primary_care_physician Cost under the plan to visit a Primary Care Physician
       * @var string
@@ -494,6 +641,11 @@ class PlanSearchResult implements ArrayAccess
       * @var string
       */
     protected $rehabilitation_services;
+    /**
+      * $skilled_nursing Benefits summary for skilled nursing services
+      * @var string
+      */
+    protected $skilled_nursing;
     /**
       * $specialist Cost under the plan to visit a specialist
       * @var string
@@ -519,6 +671,16 @@ class PlanSearchResult implements ArrayAccess
       * @var int
       */
     protected $perfect_match_percentage;
+    /**
+      * $employee_premium Cumulative premium amount for employees
+      * @var float
+      */
+    protected $employee_premium;
+    /**
+      * $dependent_premium Cumulative premium amount for dependents
+      * @var float
+      */
+    protected $dependent_premium;
 
     /**
      * Constructor
@@ -536,25 +698,35 @@ class PlanSearchResult implements ArrayAccess
             $this->carrier_name = $data["carrier_name"];
             $this->child_dental = $data["child_dental"];
             $this->child_eyewear = $data["child_eyewear"];
+            $this->child_eye_exam = $data["child_eye_exam"];
             $this->customer_service_phone_number = $data["customer_service_phone_number"];
             $this->durable_medical_equipment = $data["durable_medical_equipment"];
             $this->diagnostic_test = $data["diagnostic_test"];
             $this->drug_formulary_url = $data["drug_formulary_url"];
+            $this->effective_date = $data["effective_date"];
+            $this->expiration_date = $data["expiration_date"];
             $this->emergency_room = $data["emergency_room"];
             $this->family_drug_deductible = $data["family_drug_deductible"];
             $this->family_drug_moop = $data["family_drug_moop"];
             $this->family_medical_deductible = $data["family_medical_deductible"];
             $this->family_medical_moop = $data["family_medical_moop"];
             $this->generic_drugs = $data["generic_drugs"];
+            $this->habilitation_services = $data["habilitation_services"];
             $this->hios_issuer_id = $data["hios_issuer_id"];
+            $this->home_health_care = $data["home_health_care"];
+            $this->hospice_service = $data["hospice_service"];
             $this->id = $data["id"];
             $this->imaging = $data["imaging"];
+            $this->in_network_ids = $data["in_network_ids"];
             $this->individual_drug_deductible = $data["individual_drug_deductible"];
             $this->individual_drug_moop = $data["individual_drug_moop"];
             $this->individual_medical_deductible = $data["individual_medical_deductible"];
             $this->individual_medical_moop = $data["individual_medical_moop"];
+            $this->inpatient_birth = $data["inpatient_birth"];
             $this->inpatient_facility = $data["inpatient_facility"];
+            $this->inpatient_mental_health = $data["inpatient_mental_health"];
             $this->inpatient_physician = $data["inpatient_physician"];
+            $this->inpatient_substance = $data["inpatient_substance"];
             $this->level = $data["level"];
             $this->logo_url = $data["logo_url"];
             $this->name = $data["name"];
@@ -562,20 +734,28 @@ class PlanSearchResult implements ArrayAccess
             $this->on_market = $data["on_market"];
             $this->off_market = $data["off_market"];
             $this->out_of_network_coverage = $data["out_of_network_coverage"];
+            $this->out_of_network_ids = $data["out_of_network_ids"];
             $this->outpatient_facility = $data["outpatient_facility"];
             $this->outpatient_mental_health = $data["outpatient_mental_health"];
             $this->outpatient_physician = $data["outpatient_physician"];
+            $this->outpatient_substance = $data["outpatient_substance"];
             $this->plan_market = $data["plan_market"];
             $this->plan_type = $data["plan_type"];
             $this->preferred_brand_drugs = $data["preferred_brand_drugs"];
+            $this->prenatal_postnatal_care = $data["prenatal_postnatal_care"];
             $this->preventative_care = $data["preventative_care"];
+            $this->premium_subsidized = $data["premium_subsidized"];
+            $this->premium = $data["premium"];
             $this->primary_care_physician = $data["primary_care_physician"];
             $this->rehabilitation_services = $data["rehabilitation_services"];
+            $this->skilled_nursing = $data["skilled_nursing"];
             $this->specialist = $data["specialist"];
             $this->specialty_drugs = $data["specialty_drugs"];
             $this->urgent_care = $data["urgent_care"];
             $this->match_percentage = $data["match_percentage"];
             $this->perfect_match_percentage = $data["perfect_match_percentage"];
+            $this->employee_premium = $data["employee_premium"];
+            $this->dependent_premium = $data["dependent_premium"];
         }
     }
     /**
@@ -719,6 +899,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets child_eye_exam
+     * @return string
+     */
+    public function getChildEyeExam()
+    {
+        return $this->child_eye_exam;
+    }
+  
+    /**
+     * Sets child_eye_exam
+     * @param string $child_eye_exam Child eye exam benefits summary
+     * @return $this
+     */
+    public function setChildEyeExam($child_eye_exam)
+    {
+        
+        $this->child_eye_exam = $child_eye_exam;
+        return $this;
+    }
+    /**
      * Gets customer_service_phone_number
      * @return string
      */
@@ -796,6 +996,46 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->drug_formulary_url = $drug_formulary_url;
+        return $this;
+    }
+    /**
+     * Gets effective_date
+     * @return string
+     */
+    public function getEffectiveDate()
+    {
+        return $this->effective_date;
+    }
+  
+    /**
+     * Sets effective_date
+     * @param string $effective_date Effective date of coverage.
+     * @return $this
+     */
+    public function setEffectiveDate($effective_date)
+    {
+        
+        $this->effective_date = $effective_date;
+        return $this;
+    }
+    /**
+     * Gets expiration_date
+     * @return string
+     */
+    public function getExpirationDate()
+    {
+        return $this->expiration_date;
+    }
+  
+    /**
+     * Sets expiration_date
+     * @param string $expiration_date Expiration date of coverage.
+     * @return $this
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        
+        $this->expiration_date = $expiration_date;
         return $this;
     }
     /**
@@ -919,6 +1159,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets habilitation_services
+     * @return string
+     */
+    public function getHabilitationServices()
+    {
+        return $this->habilitation_services;
+    }
+  
+    /**
+     * Sets habilitation_services
+     * @param string $habilitation_services Habilitation services benefits summary
+     * @return $this
+     */
+    public function setHabilitationServices($habilitation_services)
+    {
+        
+        $this->habilitation_services = $habilitation_services;
+        return $this;
+    }
+    /**
      * Gets hios_issuer_id
      * @return string
      */
@@ -936,6 +1196,46 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->hios_issuer_id = $hios_issuer_id;
+        return $this;
+    }
+    /**
+     * Gets home_health_care
+     * @return string
+     */
+    public function getHomeHealthCare()
+    {
+        return $this->home_health_care;
+    }
+  
+    /**
+     * Sets home_health_care
+     * @param string $home_health_care Home health care benefits summary
+     * @return $this
+     */
+    public function setHomeHealthCare($home_health_care)
+    {
+        
+        $this->home_health_care = $home_health_care;
+        return $this;
+    }
+    /**
+     * Gets hospice_service
+     * @return string
+     */
+    public function getHospiceService()
+    {
+        return $this->hospice_service;
+    }
+  
+    /**
+     * Sets hospice_service
+     * @param string $hospice_service Hospice service benefits summary
+     * @return $this
+     */
+    public function setHospiceService($hospice_service)
+    {
+        
+        $this->hospice_service = $hospice_service;
         return $this;
     }
     /**
@@ -976,6 +1276,26 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->imaging = $imaging;
+        return $this;
+    }
+    /**
+     * Gets in_network_ids
+     * @return int[]
+     */
+    public function getInNetworkIds()
+    {
+        return $this->in_network_ids;
+    }
+  
+    /**
+     * Sets in_network_ids
+     * @param int[] $in_network_ids List of NPI numbers for Providers passed in who accept this Plan
+     * @return $this
+     */
+    public function setInNetworkIds($in_network_ids)
+    {
+        
+        $this->in_network_ids = $in_network_ids;
         return $this;
     }
     /**
@@ -1059,6 +1379,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets inpatient_birth
+     * @return string
+     */
+    public function getInpatientBirth()
+    {
+        return $this->inpatient_birth;
+    }
+  
+    /**
+     * Sets inpatient_birth
+     * @param string $inpatient_birth Inpatient birth benefits summary
+     * @return $this
+     */
+    public function setInpatientBirth($inpatient_birth)
+    {
+        
+        $this->inpatient_birth = $inpatient_birth;
+        return $this;
+    }
+    /**
      * Gets inpatient_facility
      * @return string
      */
@@ -1079,6 +1419,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets inpatient_mental_health
+     * @return string
+     */
+    public function getInpatientMentalHealth()
+    {
+        return $this->inpatient_mental_health;
+    }
+  
+    /**
+     * Sets inpatient_mental_health
+     * @param string $inpatient_mental_health Inpatient mental helath benefits summary
+     * @return $this
+     */
+    public function setInpatientMentalHealth($inpatient_mental_health)
+    {
+        
+        $this->inpatient_mental_health = $inpatient_mental_health;
+        return $this;
+    }
+    /**
      * Gets inpatient_physician
      * @return string
      */
@@ -1096,6 +1456,26 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->inpatient_physician = $inpatient_physician;
+        return $this;
+    }
+    /**
+     * Gets inpatient_substance
+     * @return string
+     */
+    public function getInpatientSubstance()
+    {
+        return $this->inpatient_substance;
+    }
+  
+    /**
+     * Sets inpatient_substance
+     * @param string $inpatient_substance Inpatient substance abuse benefits summary
+     * @return $this
+     */
+    public function setInpatientSubstance($inpatient_substance)
+    {
+        
+        $this->inpatient_substance = $inpatient_substance;
         return $this;
     }
     /**
@@ -1239,6 +1619,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets out_of_network_ids
+     * @return int[]
+     */
+    public function getOutOfNetworkIds()
+    {
+        return $this->out_of_network_ids;
+    }
+  
+    /**
+     * Sets out_of_network_ids
+     * @param int[] $out_of_network_ids List of NPI numbers for Providers passed in who do not accept this Plan
+     * @return $this
+     */
+    public function setOutOfNetworkIds($out_of_network_ids)
+    {
+        
+        $this->out_of_network_ids = $out_of_network_ids;
+        return $this;
+    }
+    /**
      * Gets outpatient_facility
      * @return string
      */
@@ -1296,6 +1696,26 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->outpatient_physician = $outpatient_physician;
+        return $this;
+    }
+    /**
+     * Gets outpatient_substance
+     * @return string
+     */
+    public function getOutpatientSubstance()
+    {
+        return $this->outpatient_substance;
+    }
+  
+    /**
+     * Sets outpatient_substance
+     * @param string $outpatient_substance Outpatient substance abuse benefits summary
+     * @return $this
+     */
+    public function setOutpatientSubstance($outpatient_substance)
+    {
+        
+        $this->outpatient_substance = $outpatient_substance;
         return $this;
     }
     /**
@@ -1359,6 +1779,26 @@ class PlanSearchResult implements ArrayAccess
         return $this;
     }
     /**
+     * Gets prenatal_postnatal_care
+     * @return string
+     */
+    public function getPrenatalPostnatalCare()
+    {
+        return $this->prenatal_postnatal_care;
+    }
+  
+    /**
+     * Sets prenatal_postnatal_care
+     * @param string $prenatal_postnatal_care Inpatient substance abuse benefits summary
+     * @return $this
+     */
+    public function setPrenatalPostnatalCare($prenatal_postnatal_care)
+    {
+        
+        $this->prenatal_postnatal_care = $prenatal_postnatal_care;
+        return $this;
+    }
+    /**
      * Gets preventative_care
      * @return string
      */
@@ -1376,6 +1816,46 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->preventative_care = $preventative_care;
+        return $this;
+    }
+    /**
+     * Gets premium_subsidized
+     * @return float
+     */
+    public function getPremiumSubsidized()
+    {
+        return $this->premium_subsidized;
+    }
+  
+    /**
+     * Sets premium_subsidized
+     * @param float $premium_subsidized Cumulative premium amount after subsidy
+     * @return $this
+     */
+    public function setPremiumSubsidized($premium_subsidized)
+    {
+        
+        $this->premium_subsidized = $premium_subsidized;
+        return $this;
+    }
+    /**
+     * Gets premium
+     * @return float
+     */
+    public function getPremium()
+    {
+        return $this->premium;
+    }
+  
+    /**
+     * Sets premium
+     * @param float $premium Cumulative premium amount
+     * @return $this
+     */
+    public function setPremium($premium)
+    {
+        
+        $this->premium = $premium;
         return $this;
     }
     /**
@@ -1416,6 +1896,26 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->rehabilitation_services = $rehabilitation_services;
+        return $this;
+    }
+    /**
+     * Gets skilled_nursing
+     * @return string
+     */
+    public function getSkilledNursing()
+    {
+        return $this->skilled_nursing;
+    }
+  
+    /**
+     * Sets skilled_nursing
+     * @param string $skilled_nursing Benefits summary for skilled nursing services
+     * @return $this
+     */
+    public function setSkilledNursing($skilled_nursing)
+    {
+        
+        $this->skilled_nursing = $skilled_nursing;
         return $this;
     }
     /**
@@ -1516,6 +2016,46 @@ class PlanSearchResult implements ArrayAccess
     {
         
         $this->perfect_match_percentage = $perfect_match_percentage;
+        return $this;
+    }
+    /**
+     * Gets employee_premium
+     * @return float
+     */
+    public function getEmployeePremium()
+    {
+        return $this->employee_premium;
+    }
+  
+    /**
+     * Sets employee_premium
+     * @param float $employee_premium Cumulative premium amount for employees
+     * @return $this
+     */
+    public function setEmployeePremium($employee_premium)
+    {
+        
+        $this->employee_premium = $employee_premium;
+        return $this;
+    }
+    /**
+     * Gets dependent_premium
+     * @return float
+     */
+    public function getDependentPremium()
+    {
+        return $this->dependent_premium;
+    }
+  
+    /**
+     * Sets dependent_premium
+     * @param float $dependent_premium Cumulative premium amount for dependents
+     * @return $this
+     */
+    public function setDependentPremium($dependent_premium)
+    {
+        
+        $this->dependent_premium = $dependent_premium;
         return $this;
     }
     /**

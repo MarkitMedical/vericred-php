@@ -66,8 +66,11 @@ class Provider implements ArrayAccess
         'email' => 'string',
         'gender' => 'string',
         'first_name' => 'string',
+        'hios_ids' => 'string[]',
         'id' => 'int',
         'last_name' => 'string',
+        'latitude' => 'float',
+        'longitude' => 'float',
         'middle_name' => 'string',
         'personal_phone' => 'string',
         'phone' => 'string',
@@ -101,8 +104,11 @@ class Provider implements ArrayAccess
         'email' => 'email',
         'gender' => 'gender',
         'first_name' => 'first_name',
+        'hios_ids' => 'hios_ids',
         'id' => 'id',
         'last_name' => 'last_name',
+        'latitude' => 'latitude',
+        'longitude' => 'longitude',
         'middle_name' => 'middle_name',
         'personal_phone' => 'personal_phone',
         'phone' => 'phone',
@@ -136,8 +142,11 @@ class Provider implements ArrayAccess
         'email' => 'setEmail',
         'gender' => 'setGender',
         'first_name' => 'setFirstName',
+        'hios_ids' => 'setHiosIds',
         'id' => 'setId',
         'last_name' => 'setLastName',
+        'latitude' => 'setLatitude',
+        'longitude' => 'setLongitude',
         'middle_name' => 'setMiddleName',
         'personal_phone' => 'setPersonalPhone',
         'phone' => 'setPhone',
@@ -171,8 +180,11 @@ class Provider implements ArrayAccess
         'email' => 'getEmail',
         'gender' => 'getGender',
         'first_name' => 'getFirstName',
+        'hios_ids' => 'getHiosIds',
         'id' => 'getId',
         'last_name' => 'getLastName',
+        'latitude' => 'getLatitude',
+        'longitude' => 'getLongitude',
         'middle_name' => 'getMiddleName',
         'personal_phone' => 'getPersonalPhone',
         'phone' => 'getPhone',
@@ -238,6 +250,11 @@ class Provider implements ArrayAccess
       */
     protected $first_name;
     /**
+      * $hios_ids List of HIOS ids for this provider
+      * @var string[]
+      */
+    protected $hios_ids;
+    /**
       * $id National Provider Index (NPI) number
       * @var int
       */
@@ -247,6 +264,16 @@ class Provider implements ArrayAccess
       * @var string
       */
     protected $last_name;
+    /**
+      * $latitude Latitude of provider
+      * @var float
+      */
+    protected $latitude;
+    /**
+      * $longitude Longitude of provider
+      * @var float
+      */
+    protected $longitude;
     /**
       * $middle_name Middle name for the provider.
       * @var string
@@ -331,8 +358,11 @@ class Provider implements ArrayAccess
             $this->email = $data["email"];
             $this->gender = $data["gender"];
             $this->first_name = $data["first_name"];
+            $this->hios_ids = $data["hios_ids"];
             $this->id = $data["id"];
             $this->last_name = $data["last_name"];
+            $this->latitude = $data["latitude"];
+            $this->longitude = $data["longitude"];
             $this->middle_name = $data["middle_name"];
             $this->personal_phone = $data["personal_phone"];
             $this->phone = $data["phone"];
@@ -529,6 +559,26 @@ class Provider implements ArrayAccess
         return $this;
     }
     /**
+     * Gets hios_ids
+     * @return string[]
+     */
+    public function getHiosIds()
+    {
+        return $this->hios_ids;
+    }
+  
+    /**
+     * Sets hios_ids
+     * @param string[] $hios_ids List of HIOS ids for this provider
+     * @return $this
+     */
+    public function setHiosIds($hios_ids)
+    {
+        
+        $this->hios_ids = $hios_ids;
+        return $this;
+    }
+    /**
      * Gets id
      * @return int
      */
@@ -566,6 +616,46 @@ class Provider implements ArrayAccess
     {
         
         $this->last_name = $last_name;
+        return $this;
+    }
+    /**
+     * Gets latitude
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+  
+    /**
+     * Sets latitude
+     * @param float $latitude Latitude of provider
+     * @return $this
+     */
+    public function setLatitude($latitude)
+    {
+        
+        $this->latitude = $latitude;
+        return $this;
+    }
+    /**
+     * Gets longitude
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+  
+    /**
+     * Sets longitude
+     * @param float $longitude Longitude of provider
+     * @return $this
+     */
+    public function setLongitude($longitude)
+    {
+        
+        $this->longitude = $longitude;
         return $this;
     }
     /**

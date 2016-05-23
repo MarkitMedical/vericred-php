@@ -58,7 +58,7 @@ class DrugCoverage implements ArrayAccess
       */
     static $swaggerTypes = array(
         'plan_id' => 'string',
-        'ndc_package_code' => 'string',
+        'drug_package_id' => 'string',
         'tier' => 'string',
         'quantity_limit' => 'bool',
         'prior_authorization' => 'bool',
@@ -75,7 +75,7 @@ class DrugCoverage implements ArrayAccess
       */
     static $attributeMap = array(
         'plan_id' => 'plan_id',
-        'ndc_package_code' => 'ndc_package_code',
+        'drug_package_id' => 'drug_package_id',
         'tier' => 'tier',
         'quantity_limit' => 'quantity_limit',
         'prior_authorization' => 'prior_authorization',
@@ -92,7 +92,7 @@ class DrugCoverage implements ArrayAccess
       */
     static $setters = array(
         'plan_id' => 'setPlanId',
-        'ndc_package_code' => 'setNdcPackageCode',
+        'drug_package_id' => 'setDrugPackageId',
         'tier' => 'setTier',
         'quantity_limit' => 'setQuantityLimit',
         'prior_authorization' => 'setPriorAuthorization',
@@ -109,7 +109,7 @@ class DrugCoverage implements ArrayAccess
       */
     static $getters = array(
         'plan_id' => 'getPlanId',
-        'ndc_package_code' => 'getNdcPackageCode',
+        'drug_package_id' => 'getDrugPackageId',
         'tier' => 'getTier',
         'quantity_limit' => 'getQuantityLimit',
         'prior_authorization' => 'getPriorAuthorization',
@@ -126,10 +126,10 @@ class DrugCoverage implements ArrayAccess
       */
     protected $plan_id;
     /**
-      * $ndc_package_code NDC package code
+      * $drug_package_id NDC package code
       * @var string
       */
-    protected $ndc_package_code;
+    protected $drug_package_id;
     /**
       * $tier Tier Name
       * @var string
@@ -161,7 +161,7 @@ class DrugCoverage implements ArrayAccess
         
         if ($data != null) {
             $this->plan_id = $data["plan_id"];
-            $this->ndc_package_code = $data["ndc_package_code"];
+            $this->drug_package_id = $data["drug_package_id"];
             $this->tier = $data["tier"];
             $this->quantity_limit = $data["quantity_limit"];
             $this->prior_authorization = $data["prior_authorization"];
@@ -189,23 +189,23 @@ class DrugCoverage implements ArrayAccess
         return $this;
     }
     /**
-     * Gets ndc_package_code
+     * Gets drug_package_id
      * @return string
      */
-    public function getNdcPackageCode()
+    public function getDrugPackageId()
     {
-        return $this->ndc_package_code;
+        return $this->drug_package_id;
     }
   
     /**
-     * Sets ndc_package_code
-     * @param string $ndc_package_code NDC package code
+     * Sets drug_package_id
+     * @param string $drug_package_id NDC package code
      * @return $this
      */
-    public function setNdcPackageCode($ndc_package_code)
+    public function setDrugPackageId($drug_package_id)
     {
         
-        $this->ndc_package_code = $ndc_package_code;
+        $this->drug_package_id = $drug_package_id;
         return $this;
     }
     /**

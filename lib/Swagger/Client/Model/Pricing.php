@@ -61,7 +61,13 @@ class Pricing implements ArrayAccess
         'effective_date' => '\DateTime',
         'expiration_date' => '\DateTime',
         'plan_id' => 'int',
-        'rating_area_id' => 'int'
+        'premium_child_only' => 'float',
+        'premium_family' => 'float',
+        'premium_single' => 'float',
+        'premium_single_and_children' => 'float',
+        'premium_single_and_spouse' => 'float',
+        'premium_single_smoker' => 'float',
+        'rating_area_id' => 'string'
     );
   
     static function swaggerTypes() {
@@ -77,6 +83,12 @@ class Pricing implements ArrayAccess
         'effective_date' => 'effective_date',
         'expiration_date' => 'expiration_date',
         'plan_id' => 'plan_id',
+        'premium_child_only' => 'premium_child_only',
+        'premium_family' => 'premium_family',
+        'premium_single' => 'premium_single',
+        'premium_single_and_children' => 'premium_single_and_children',
+        'premium_single_and_spouse' => 'premium_single_and_spouse',
+        'premium_single_smoker' => 'premium_single_smoker',
         'rating_area_id' => 'rating_area_id'
     );
   
@@ -93,6 +105,12 @@ class Pricing implements ArrayAccess
         'effective_date' => 'setEffectiveDate',
         'expiration_date' => 'setExpirationDate',
         'plan_id' => 'setPlanId',
+        'premium_child_only' => 'setPremiumChildOnly',
+        'premium_family' => 'setPremiumFamily',
+        'premium_single' => 'setPremiumSingle',
+        'premium_single_and_children' => 'setPremiumSingleAndChildren',
+        'premium_single_and_spouse' => 'setPremiumSingleAndSpouse',
+        'premium_single_smoker' => 'setPremiumSingleSmoker',
         'rating_area_id' => 'setRatingAreaId'
     );
   
@@ -109,6 +127,12 @@ class Pricing implements ArrayAccess
         'effective_date' => 'getEffectiveDate',
         'expiration_date' => 'getExpirationDate',
         'plan_id' => 'getPlanId',
+        'premium_child_only' => 'getPremiumChildOnly',
+        'premium_family' => 'getPremiumFamily',
+        'premium_single' => 'getPremiumSingle',
+        'premium_single_and_children' => 'getPremiumSingleAndChildren',
+        'premium_single_and_spouse' => 'getPremiumSingleAndSpouse',
+        'premium_single_smoker' => 'getPremiumSingleSmoker',
         'rating_area_id' => 'getRatingAreaId'
     );
   
@@ -137,8 +161,38 @@ class Pricing implements ArrayAccess
       */
     protected $plan_id;
     /**
+      * $premium_child_only Child-only premium
+      * @var float
+      */
+    protected $premium_child_only;
+    /**
+      * $premium_family Family premium
+      * @var float
+      */
+    protected $premium_family;
+    /**
+      * $premium_single Single-person premium
+      * @var float
+      */
+    protected $premium_single;
+    /**
+      * $premium_single_and_children Single person including children premium
+      * @var float
+      */
+    protected $premium_single_and_children;
+    /**
+      * $premium_single_and_spouse Person with spouse premium
+      * @var float
+      */
+    protected $premium_single_and_spouse;
+    /**
+      * $premium_single_smoker Premium for single smoker
+      * @var float
+      */
+    protected $premium_single_smoker;
+    /**
       * $rating_area_id Foreign key to rating areas
-      * @var int
+      * @var string
       */
     protected $rating_area_id;
 
@@ -155,6 +209,12 @@ class Pricing implements ArrayAccess
             $this->effective_date = $data["effective_date"];
             $this->expiration_date = $data["expiration_date"];
             $this->plan_id = $data["plan_id"];
+            $this->premium_child_only = $data["premium_child_only"];
+            $this->premium_family = $data["premium_family"];
+            $this->premium_single = $data["premium_single"];
+            $this->premium_single_and_children = $data["premium_single_and_children"];
+            $this->premium_single_and_spouse = $data["premium_single_and_spouse"];
+            $this->premium_single_smoker = $data["premium_single_smoker"];
             $this->rating_area_id = $data["rating_area_id"];
         }
     }
@@ -239,8 +299,128 @@ class Pricing implements ArrayAccess
         return $this;
     }
     /**
+     * Gets premium_child_only
+     * @return float
+     */
+    public function getPremiumChildOnly()
+    {
+        return $this->premium_child_only;
+    }
+  
+    /**
+     * Sets premium_child_only
+     * @param float $premium_child_only Child-only premium
+     * @return $this
+     */
+    public function setPremiumChildOnly($premium_child_only)
+    {
+        
+        $this->premium_child_only = $premium_child_only;
+        return $this;
+    }
+    /**
+     * Gets premium_family
+     * @return float
+     */
+    public function getPremiumFamily()
+    {
+        return $this->premium_family;
+    }
+  
+    /**
+     * Sets premium_family
+     * @param float $premium_family Family premium
+     * @return $this
+     */
+    public function setPremiumFamily($premium_family)
+    {
+        
+        $this->premium_family = $premium_family;
+        return $this;
+    }
+    /**
+     * Gets premium_single
+     * @return float
+     */
+    public function getPremiumSingle()
+    {
+        return $this->premium_single;
+    }
+  
+    /**
+     * Sets premium_single
+     * @param float $premium_single Single-person premium
+     * @return $this
+     */
+    public function setPremiumSingle($premium_single)
+    {
+        
+        $this->premium_single = $premium_single;
+        return $this;
+    }
+    /**
+     * Gets premium_single_and_children
+     * @return float
+     */
+    public function getPremiumSingleAndChildren()
+    {
+        return $this->premium_single_and_children;
+    }
+  
+    /**
+     * Sets premium_single_and_children
+     * @param float $premium_single_and_children Single person including children premium
+     * @return $this
+     */
+    public function setPremiumSingleAndChildren($premium_single_and_children)
+    {
+        
+        $this->premium_single_and_children = $premium_single_and_children;
+        return $this;
+    }
+    /**
+     * Gets premium_single_and_spouse
+     * @return float
+     */
+    public function getPremiumSingleAndSpouse()
+    {
+        return $this->premium_single_and_spouse;
+    }
+  
+    /**
+     * Sets premium_single_and_spouse
+     * @param float $premium_single_and_spouse Person with spouse premium
+     * @return $this
+     */
+    public function setPremiumSingleAndSpouse($premium_single_and_spouse)
+    {
+        
+        $this->premium_single_and_spouse = $premium_single_and_spouse;
+        return $this;
+    }
+    /**
+     * Gets premium_single_smoker
+     * @return float
+     */
+    public function getPremiumSingleSmoker()
+    {
+        return $this->premium_single_smoker;
+    }
+  
+    /**
+     * Sets premium_single_smoker
+     * @param float $premium_single_smoker Premium for single smoker
+     * @return $this
+     */
+    public function setPremiumSingleSmoker($premium_single_smoker)
+    {
+        
+        $this->premium_single_smoker = $premium_single_smoker;
+        return $this;
+    }
+    /**
      * Gets rating_area_id
-     * @return int
+     * @return string
      */
     public function getRatingAreaId()
     {
@@ -249,7 +429,7 @@ class Pricing implements ArrayAccess
   
     /**
      * Sets rating_area_id
-     * @param int $rating_area_id Foreign key to rating areas
+     * @param string $rating_area_id Foreign key to rating areas
      * @return $this
      */
     public function setRatingAreaId($rating_area_id)

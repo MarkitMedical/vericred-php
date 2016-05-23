@@ -91,40 +91,35 @@ class PlansApi
     }
   
     /**
-     * plansFindPost
+     * findPlans
      *
-     * Find a set of plans for a Zip Code and County
+     * Find Plans
      *
-     * @param \Swagger\Client\Model\Query $query Plan query (required)
-     * @return \Swagger\Client\Model\Plan[]
+     * @param \Swagger\Client\Model\RequestPlanFind $body  (optional)
+     * @return \Swagger\Client\Model\PlanSearchResponse
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function plansFindPost($query)
+    public function findPlans($body = null)
     {
-        list($response) = $this->plansFindPostWithHttpInfo ($query);
+        list($response) = $this->findPlansWithHttpInfo ($body);
         return $response; 
     }
 
 
     /**
-     * plansFindPostWithHttpInfo
+     * findPlansWithHttpInfo
      *
-     * Find a set of plans for a Zip Code and County
+     * Find Plans
      *
-     * @param \Swagger\Client\Model\Query $query Plan query (required)
-     * @return Array of \Swagger\Client\Model\Plan[], HTTP status code, HTTP response headers (array of strings)
+     * @param \Swagger\Client\Model\RequestPlanFind $body  (optional)
+     * @return Array of \Swagger\Client\Model\PlanSearchResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function plansFindPostWithHttpInfo($query)
+    public function findPlansWithHttpInfo($body = null)
     {
-        
-        // verify the required parameter 'query' is set
-        if ($query === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $query when calling plansFindPost');
-        }
-  
+          
         // parse inputs
-        $resourcePath = "/plans/find";
+        $resourcePath = "/plans/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -144,8 +139,8 @@ class PlansApi
         
         // body params
         $_tempBody = null;
-        if (isset($query)) {
-            $_tempBody = $query;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
   
         // for model (json/xml)
@@ -159,17 +154,17 @@ class PlansApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\Plan[]'
+                $headerParams, '\Swagger\Client\Model\PlanSearchResponse'
             );
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Plan[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PlanSearchResponse', $httpHeader), $statusCode, $httpHeader);
                     } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Plan[]', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PlanSearchResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

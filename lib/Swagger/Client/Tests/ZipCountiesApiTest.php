@@ -65,12 +65,12 @@ class ZipCountiesApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for zipCountiesGet
+     * Test case for getZipCounties
      *
-     * Find Zip Counties by Zip Code
+     * Search for Zip Counties
      *
      */
-    public function test_zipCountiesGet() {
+    public function test_getZipCounties() {
 
     }
 }

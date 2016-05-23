@@ -57,8 +57,8 @@ class RatingArea implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'id' => 'int',
-        'state_id' => 'int'
+        'id' => 'string',
+        'state_id' => 'string'
     );
   
     static function swaggerTypes() {
@@ -105,13 +105,13 @@ class RatingArea implements ArrayAccess
     }
 
     /**
-      * $id Primary key
-      * @var int
+      * $id Name of the Rating Area
+      * @var string
       */
     protected $id;
     /**
-      * $state_id Foreign key to state
-      * @var int
+      * $state_id State Code
+      * @var string
       */
     protected $state_id;
 
@@ -130,7 +130,7 @@ class RatingArea implements ArrayAccess
     }
     /**
      * Gets id
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -139,7 +139,7 @@ class RatingArea implements ArrayAccess
   
     /**
      * Sets id
-     * @param int $id Primary key
+     * @param string $id Name of the Rating Area
      * @return $this
      */
     public function setId($id)
@@ -150,7 +150,7 @@ class RatingArea implements ArrayAccess
     }
     /**
      * Gets state_id
-     * @return int
+     * @return string
      */
     public function getStateId()
     {
@@ -159,7 +159,7 @@ class RatingArea implements ArrayAccess
   
     /**
      * Sets state_id
-     * @param int $state_id Foreign key to state
+     * @param string $state_id State Code
      * @return $this
      */
     public function setStateId($state_id)

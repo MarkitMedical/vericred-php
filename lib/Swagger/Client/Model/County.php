@@ -150,14 +150,12 @@ class County implements ArrayAccess
       */
     protected $state_id;
     /**
-      * $state_live Is the state containing this county active for consumers?
-                  *deprecated in favor of last_date_for_individual
+      * $state_live Is the state containing this county active for consumers?(deprecated in favor of last_date_for_individual)
       * @var bool
       */
     protected $state_live;
     /**
-      * $state_live_for_business Is the state containing this county active for business?
-                  *deprecated in favor of last_date_for_shop
+      * $state_live_for_business Is the state containing this county active for business?(deprecated in favor of last_date_for_shop)
       * @var bool
       */
     protected $state_live_for_business;
@@ -291,8 +289,7 @@ class County implements ArrayAccess
   
     /**
      * Sets state_live
-     * @param bool $state_live Is the state containing this county active for consumers?
-                  *deprecated in favor of last_date_for_individual
+     * @param bool $state_live Is the state containing this county active for consumers?(deprecated in favor of last_date_for_individual)
      * @return $this
      */
     public function setStateLive($state_live)
@@ -312,8 +309,7 @@ class County implements ArrayAccess
   
     /**
      * Sets state_live_for_business
-     * @param bool $state_live_for_business Is the state containing this county active for business?
-                  *deprecated in favor of last_date_for_shop
+     * @param bool $state_live_for_business Is the state containing this county active for business?(deprecated in favor of last_date_for_shop)
      * @return $this
      */
     public function setStateLiveForBusiness($state_live_for_business)

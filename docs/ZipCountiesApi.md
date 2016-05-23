@@ -4,22 +4,15 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**zipCountiesGet**](ZipCountiesApi.md#zipCountiesGet) | **GET** /zip_counties | Find Zip Counties by Zip Code
+[**getZipCounties**](ZipCountiesApi.md#getZipCounties) | **GET** /zip_counties | Search for Zip Counties
 
 
-# **zipCountiesGet**
-> \Swagger\Client\Model\InlineResponse2002 zipCountiesGet($zip_prefix)
+# **getZipCounties**
+> \Swagger\Client\Model\ZipCountyResponse getZipCounties($zip_prefix, $vericred_api_key)
 
-Find Zip Counties by Zip Code
+Search for Zip Counties
 
-### Finding Zip Code and Fips Code
-
-Our `Plan` endpoints require a zip code and a fips (county) code.  This is
-because plan pricing requires both of these elements.  Users are unlikely to
-know their fips code, so we provide this endpoint to look up a `ZipCounty` by
-zip code and return both the selected zip and fips codes.
-
-
+Our `Plan` endpoints require a zip code and a fips (county) code.  This is because plan pricing requires both of these elements.  Users are unlikely to know their fips code, so we provide this endpoint to look up a `ZipCounty` by zip code and return both the selected zip and fips codes.
 
 ### Example 
 ```php
@@ -27,13 +20,14 @@ zip code and return both the selected zip and fips codes.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Vericred\Client\Api\ZipCountiesApi();
-$zip_prefix = "zip_prefix_example"; // string | Partial five-digit Zip
+$zip_prefix = "1002"; // string | Partial five-digit Zip
+$vericred_api_key = "api-doc-key"; // string | API Key
 
 try { 
-    $result = $api_instance->zipCountiesGet($zip_prefix);
+    $result = $api_instance->getZipCounties($zip_prefix, $vericred_api_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ZipCountiesApi->zipCountiesGet: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ZipCountiesApi->getZipCounties: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -43,10 +37,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **zip_prefix** | **string**| Partial five-digit Zip | 
+ **vericred_api_key** | **string**| API Key | [optional] 
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2002**](InlineResponse2002.md)
+[**\Swagger\Client\Model\ZipCountyResponse**](ZipCountyResponse.md)
 
 ### Authorization
 

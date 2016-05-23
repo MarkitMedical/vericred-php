@@ -4,14 +4,61 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**providersGet**](ProvidersApi.md#providersGet) | **GET** /providers | Find providers by term and zip code
-[**providersNpiGet**](ProvidersApi.md#providersNpiGet) | **GET** /providers/{npi} | Find a specific Provider
+[**getProvider**](ProvidersApi.md#getProvider) | **GET** /providers/{npi} | Find a Provider
+[**getProviders**](ProvidersApi.md#getProviders) | **POST** /providers/search | Find Providers
 
 
-# **providersGet**
-> \Swagger\Client\Model\InlineResponse200 providersGet($search_term, $zip_code, $accepts_insurance, $hios_ids, $page, $per_page, $radius)
+# **getProvider**
+> \Swagger\Client\Model\ProviderResponse getProvider($npi, $vericred_api_key)
 
-Find providers by term and zip code
+Find a Provider
+
+To retrieve a specific provider, just perform a GET using his NPI number
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Vericred\Client\Api\ProvidersApi();
+$npi = "1234567890"; // string | NPI number
+$vericred_api_key = "api-doc-key"; // string | API Key
+
+try { 
+    $result = $api_instance->getProvider($npi, $vericred_api_key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProvidersApi->getProvider: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **npi** | **string**| NPI number | 
+ **vericred_api_key** | **string**| API Key | [optional] 
+
+### Return type
+
+[**\Swagger\Client\Model\ProviderResponse**](ProviderResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getProviders**
+> \Swagger\Client\Model\ProvidersSearchResponse getProviders($body)
+
+Find Providers
 
 All `Provider` searches require a `zip_code`, which we use for weighting
 the search results to favor `Provider`s that are near the user.  For example,
@@ -28,26 +75,19 @@ Specialty name search.  So, searching "John Smith nose" would return
 "Dr. John Smith", the ENT Specialist before "Dr. John Smith" the Internist.
 
 
-
 ### Example 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Vericred\Client\Api\ProvidersApi();
-$search_term = "search_term_example"; // string | String to search by
-$zip_code = "zip_code_example"; // string | Zip Code to search near
-$accepts_insurance = "accepts_insurance_example"; // string | Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true
-$hios_ids = array("hios_ids_example"); // string[] | HIOS id of one or more plans
-$page = "page_example"; // string | Page number
-$per_page = "per_page_example"; // string | Number of records to return per page
-$radius = "radius_example"; // string | Radius (in miles) to use to limit results
+$body = new \Swagger\Client\Model\RequestProvidersSearch(); // \Swagger\Client\Model\RequestProvidersSearch | 
 
 try { 
-    $result = $api_instance->providersGet($search_term, $zip_code, $accepts_insurance, $hios_ids, $page, $per_page, $radius);
+    $result = $api_instance->getProviders($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProvidersApi->providersGet: ', $e->getMessage(), "\n";
+    echo 'Exception when calling ProvidersApi->getProviders: ', $e->getMessage(), "\n";
 }
 ?>
 ```
@@ -56,64 +96,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_term** | **string**| String to search by | 
- **zip_code** | **string**| Zip Code to search near | 
- **accepts_insurance** | **string**| Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true | [optional] 
- **hios_ids** | [**string[]**](string.md)| HIOS id of one or more plans | [optional] 
- **page** | **string**| Page number | [optional] 
- **per_page** | **string**| Number of records to return per page | [optional] 
- **radius** | **string**| Radius (in miles) to use to limit results | [optional] 
+ **body** | [**\Swagger\Client\Model\RequestProvidersSearch**](\Swagger\Client\Model\RequestProvidersSearch.md)|  | [optional] 
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **providersNpiGet**
-> \Swagger\Client\Model\InlineResponse2001 providersNpiGet($npi)
-
-Find a specific Provider
-
-To retrieve a specific provider, just perform a GET using his NPI number
-
-
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Vericred\Client\Api\ProvidersApi();
-$npi = "npi_example"; // string | NPI number
-
-try { 
-    $result = $api_instance->providersNpiGet($npi);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProvidersApi->providersNpiGet: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **npi** | **string**| NPI number | 
-
-### Return type
-
-[**\Swagger\Client\Model\InlineResponse2001**](InlineResponse2001.md)
+[**\Swagger\Client\Model\ProvidersSearchResponse**](ProvidersSearchResponse.md)
 
 ### Authorization
 

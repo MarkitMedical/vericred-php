@@ -135,7 +135,7 @@ class Applicant implements ArrayAccess
       */
     protected $dob;
     /**
-      * $member_id Foreign key to members
+      * $member_id Member token
       * @var string
       */
     protected $member_id;
@@ -229,7 +229,7 @@ class Applicant implements ArrayAccess
   
     /**
      * Sets member_id
-     * @param string $member_id Foreign key to members
+     * @param string $member_id Member token
      * @return $this
      */
     public function setMemberId($member_id)

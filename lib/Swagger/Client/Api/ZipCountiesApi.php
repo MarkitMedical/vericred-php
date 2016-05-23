@@ -91,36 +91,38 @@ class ZipCountiesApi
     }
   
     /**
-     * zipCountiesGet
+     * getZipCounties
      *
-     * Find Zip Counties by Zip Code
+     * Search for Zip Counties
      *
      * @param string $zip_prefix Partial five-digit Zip (required)
-     * @return \Swagger\Client\Model\InlineResponse2002
+     * @param string $vericred_api_key API Key (optional)
+     * @return \Swagger\Client\Model\ZipCountyResponse
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function zipCountiesGet($zip_prefix)
+    public function getZipCounties($zip_prefix, $vericred_api_key = null)
     {
-        list($response) = $this->zipCountiesGetWithHttpInfo ($zip_prefix);
+        list($response) = $this->getZipCountiesWithHttpInfo ($zip_prefix, $vericred_api_key);
         return $response; 
     }
 
 
     /**
-     * zipCountiesGetWithHttpInfo
+     * getZipCountiesWithHttpInfo
      *
-     * Find Zip Counties by Zip Code
+     * Search for Zip Counties
      *
      * @param string $zip_prefix Partial five-digit Zip (required)
-     * @return Array of \Swagger\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
+     * @param string $vericred_api_key API Key (optional)
+     * @return Array of \Swagger\Client\Model\ZipCountyResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function zipCountiesGetWithHttpInfo($zip_prefix)
+    public function getZipCountiesWithHttpInfo($zip_prefix, $vericred_api_key = null)
     {
         
         // verify the required parameter 'zip_prefix' is set
         if ($zip_prefix === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $zip_prefix when calling zipCountiesGet');
+            throw new \InvalidArgumentException('Missing the required parameter $zip_prefix when calling getZipCounties');
         }
   
         // parse inputs
@@ -139,7 +141,10 @@ class ZipCountiesApi
         if ($zip_prefix !== null) {
             $queryParams['zip_prefix'] = $this->apiClient->getSerializer()->toQueryValue($zip_prefix);
         }
-        
+        // header params
+        if ($vericred_api_key !== null) {
+            $headerParams['Vericred-Api-Key'] = $this->apiClient->getSerializer()->toHeaderValue($vericred_api_key);
+        }
         
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -158,17 +163,17 @@ class ZipCountiesApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\InlineResponse2002'
+                $headerParams, '\Swagger\Client\Model\ZipCountyResponse'
             );
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2002', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ZipCountyResponse', $httpHeader), $statusCode, $httpHeader);
                     } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2002', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ZipCountyResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

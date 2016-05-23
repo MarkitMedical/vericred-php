@@ -65,12 +65,12 @@ class PlansApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for plansFindPost
+     * Test case for findPlans
      *
-     * Find a set of plans for a Zip Code and County
+     * Find Plans
      *
      */
-    public function test_plansFindPost() {
+    public function test_findPlans() {
 
     }
 }

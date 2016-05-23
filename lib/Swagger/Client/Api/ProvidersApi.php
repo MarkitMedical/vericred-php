@@ -91,160 +91,38 @@ class ProvidersApi
     }
   
     /**
-     * providersGet
+     * getProvider
      *
-     * Find providers by term and zip code
+     * Find a Provider
      *
-     * @param string $search_term String to search by (required)
-     * @param string $zip_code Zip Code to search near (required)
-     * @param string $accepts_insurance Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true (optional)
-     * @param string[] $hios_ids HIOS id of one or more plans (optional)
-     * @param string $page Page number (optional)
-     * @param string $per_page Number of records to return per page (optional)
-     * @param string $radius Radius (in miles) to use to limit results (optional)
-     * @return \Swagger\Client\Model\InlineResponse200
+     * @param string $npi NPI number (required)
+     * @param string $vericred_api_key API Key (optional)
+     * @return \Swagger\Client\Model\ProviderResponse
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function providersGet($search_term, $zip_code, $accepts_insurance = null, $hios_ids = null, $page = null, $per_page = null, $radius = null)
+    public function getProvider($npi, $vericred_api_key = null)
     {
-        list($response) = $this->providersGetWithHttpInfo ($search_term, $zip_code, $accepts_insurance, $hios_ids, $page, $per_page, $radius);
+        list($response) = $this->getProviderWithHttpInfo ($npi, $vericred_api_key);
         return $response; 
     }
 
 
     /**
-     * providersGetWithHttpInfo
+     * getProviderWithHttpInfo
      *
-     * Find providers by term and zip code
-     *
-     * @param string $search_term String to search by (required)
-     * @param string $zip_code Zip Code to search near (required)
-     * @param string $accepts_insurance Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true (optional)
-     * @param string[] $hios_ids HIOS id of one or more plans (optional)
-     * @param string $page Page number (optional)
-     * @param string $per_page Number of records to return per page (optional)
-     * @param string $radius Radius (in miles) to use to limit results (optional)
-     * @return Array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Vericred\Client\ApiException on non-2xx response
-     */
-    public function providersGetWithHttpInfo($search_term, $zip_code, $accepts_insurance = null, $hios_ids = null, $page = null, $per_page = null, $radius = null)
-    {
-        
-        // verify the required parameter 'search_term' is set
-        if ($search_term === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $search_term when calling providersGet');
-        }
-
-        // verify the required parameter 'zip_code' is set
-        if ($zip_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $zip_code when calling providersGet');
-        }
-  
-        // parse inputs
-        $resourcePath = "/providers";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array());
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
-  
-        // query params
-        if ($accepts_insurance !== null) {
-            $queryParams['accepts_insurance'] = $this->apiClient->getSerializer()->toQueryValue($accepts_insurance);
-        }// query params
-        if (is_array($hios_ids)) {
-            $hios_ids = $this->apiClient->getSerializer()->serializeCollection($hios_ids, 'csv', true);
-        }
-        if ($hios_ids !== null) {
-            $queryParams['hios_ids'] = $this->apiClient->getSerializer()->toQueryValue($hios_ids);
-        }// query params
-        if ($page !== null) {
-            $queryParams['page'] = $this->apiClient->getSerializer()->toQueryValue($page);
-        }// query params
-        if ($per_page !== null) {
-            $queryParams['per_page'] = $this->apiClient->getSerializer()->toQueryValue($per_page);
-        }// query params
-        if ($radius !== null) {
-            $queryParams['radius'] = $this->apiClient->getSerializer()->toQueryValue($radius);
-        }// query params
-        if ($search_term !== null) {
-            $queryParams['search_term'] = $this->apiClient->getSerializer()->toQueryValue($search_term);
-        }// query params
-        if ($zip_code !== null) {
-            $queryParams['zip_code'] = $this->apiClient->getSerializer()->toQueryValue($zip_code);
-        }
-        
-        
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-                // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\InlineResponse200'
-            );
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader);
-                    } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            }
-  
-            throw $e;
-        }
-    }
-    /**
-     * providersNpiGet
-     *
-     * Find a specific Provider
+     * Find a Provider
      *
      * @param string $npi NPI number (required)
-     * @return \Swagger\Client\Model\InlineResponse2001
+     * @param string $vericred_api_key API Key (optional)
+     * @return Array of \Swagger\Client\Model\ProviderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \Vericred\Client\ApiException on non-2xx response
      */
-    public function providersNpiGet($npi)
-    {
-        list($response) = $this->providersNpiGetWithHttpInfo ($npi);
-        return $response; 
-    }
-
-
-    /**
-     * providersNpiGetWithHttpInfo
-     *
-     * Find a specific Provider
-     *
-     * @param string $npi NPI number (required)
-     * @return Array of \Swagger\Client\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Vericred\Client\ApiException on non-2xx response
-     */
-    public function providersNpiGetWithHttpInfo($npi)
+    public function getProviderWithHttpInfo($npi, $vericred_api_key = null)
     {
         
         // verify the required parameter 'npi' is set
         if ($npi === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $npi when calling providersNpiGet');
+            throw new \InvalidArgumentException('Missing the required parameter $npi when calling getProvider');
         }
   
         // parse inputs
@@ -260,7 +138,10 @@ class ProvidersApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
   
         
-        
+        // header params
+        if ($vericred_api_key !== null) {
+            $headerParams['Vericred-Api-Key'] = $this->apiClient->getSerializer()->toHeaderValue($vericred_api_key);
+        }
         // path params
         if ($npi !== null) {
             $resourcePath = str_replace(
@@ -286,17 +167,99 @@ class ProvidersApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Swagger\Client\Model\InlineResponse2001'
+                $headerParams, '\Swagger\Client\Model\ProviderResponse'
             );
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse2001', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ProviderResponse', $httpHeader), $statusCode, $httpHeader);
                     } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse2001', $e->getResponseHeaders());
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ProviderResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    /**
+     * getProviders
+     *
+     * Find Providers
+     *
+     * @param \Swagger\Client\Model\RequestProvidersSearch $body  (optional)
+     * @return \Swagger\Client\Model\ProvidersSearchResponse
+     * @throws \Vericred\Client\ApiException on non-2xx response
+     */
+    public function getProviders($body = null)
+    {
+        list($response) = $this->getProvidersWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * getProvidersWithHttpInfo
+     *
+     * Find Providers
+     *
+     * @param \Swagger\Client\Model\RequestProvidersSearch $body  (optional)
+     * @return Array of \Swagger\Client\Model\ProvidersSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Vericred\Client\ApiException on non-2xx response
+     */
+    public function getProvidersWithHttpInfo($body = null)
+    {
+          
+        // parse inputs
+        $resourcePath = "/providers/search";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array());
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+                // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Swagger\Client\Model\ProvidersSearchResponse'
+            );
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ProvidersSearchResponse', $httpHeader), $statusCode, $httpHeader);
+                    } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ProvidersSearchResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

@@ -65,21 +65,21 @@ class ProvidersApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for providersGet
+     * Test case for getProvider
      *
-     * Find providers by term and zip code
+     * Find a Provider
      *
      */
-    public function test_providersGet() {
+    public function test_getProvider() {
 
     }
     /**
-     * Test case for providersNpiGet
+     * Test case for getProviders
      *
-     * Find a specific Provider
+     * Find Providers
      *
      */
-    public function test_providersNpiGet() {
+    public function test_getProviders() {
 
     }
 }
